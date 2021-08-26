@@ -115,36 +115,36 @@ plot(bestRegressionModel$residuals)
 microvanSurveyData <- microvanData[,3:32]
 
 #Uncomment to for better factor analysis interpretations
-names(microvanSurveyData)[names(microvanSurveyData) == 'kidtrans'] <- "We need a car that helps transport our kids and their friends."
-names(microvanSurveyData)[names(microvanSurveyData) == 'miniboxy'] <- "Current minivans are simply too boxy and large."
-names(microvanSurveyData)[names(microvanSurveyData) == 'lthrbetr'] <- "Leather seats are dramatically better than cloth."
-names(microvanSurveyData)[names(microvanSurveyData) == 'secbiggr'] <- "If we got a second car, it would need to be bigger than a standard sedan."
-names(microvanSurveyData)[names(microvanSurveyData) == 'safeimpt'] <- "Auto safety is very important to me."
-names(microvanSurveyData)[names(microvanSurveyData) == 'buyhghnd'] <- "We tend to buy higher‐end cars."
-names(microvanSurveyData)[names(microvanSurveyData) == 'pricqual'] <- "Car prices strongly reflect underlying production quality."
-names(microvanSurveyData)[names(microvanSurveyData) == 'prmsound'] <- "A premium sound and entertainment system helps on long car trips."
-names(microvanSurveyData)[names(microvanSurveyData) == 'perfimpt'] <- "Performance is very important in a car."
-names(microvanSurveyData)[names(microvanSurveyData) == 'tkvacatn'] <- "We try to take as many vacations as possible."
-names(microvanSurveyData)[names(microvanSurveyData) == 'noparkrm'] <- "Our current residence doesn't have a lot of parking room."
-names(microvanSurveyData)[names(microvanSurveyData) == 'homlrgst'] <- "Our home is among the largest in the neighborhood."
-names(microvanSurveyData)[names(microvanSurveyData) == 'envrminr'] <- "The environmental impact of automobiles is relatively minor."
-names(microvanSurveyData)[names(microvanSurveyData) == 'needbetw'] <- "There needs to be something between a sedan and a minivan."
-names(microvanSurveyData)[names(microvanSurveyData) == 'suvcmpct'] <- "I like SUVs more than minivans since they're more compact."
-names(microvanSurveyData)[names(microvanSurveyData) == 'next2str'] <- "My next car will be a two‐seater."
-names(microvanSurveyData)[names(microvanSurveyData) == 'carefmny'] <- "We are careful with money."
-names(microvanSurveyData)[names(microvanSurveyData) == 'shdcarpl'] <- "I think everyone should carpool or take public transportation."
-names(microvanSurveyData)[names(microvanSurveyData) == 'imprtapp'] <- "Most of our appliances are imported."
-names(microvanSurveyData)[names(microvanSurveyData) == 'lk4whldr'] <- "Four‐wheel drive is a very attractive option."
-names(microvanSurveyData)[names(microvanSurveyData) == 'kidsbulk'] <- "Our kids tend to take a lot of bulky items and toys with them."
-names(microvanSurveyData)[names(microvanSurveyData) == 'wntguzlr'] <- "I will buy what I want even if it is a “gas guzzler”."
-names(microvanSurveyData)[names(microvanSurveyData) == 'nordtrps'] <- "We don’t go on road trips with the family."
-names(microvanSurveyData)[names(microvanSurveyData) == 'stylclth'] <- "We tend to purchase stylish clothes for the family."
-names(microvanSurveyData)[names(microvanSurveyData) == 'strngwrn'] <- "Warranty protection needs to be strong on a new car."
-names(microvanSurveyData)[names(microvanSurveyData) == 'passnimp'] <- "Passion for one’s job is more important than pay."
-names(microvanSurveyData)[names(microvanSurveyData) == 'twoincom'] <- "Our family would find it hard to subsist on just one income."
-names(microvanSurveyData)[names(microvanSurveyData) == 'nohummer'] <- "I am not interested in owning a vehicle like a Hummer."
-names(microvanSurveyData)[names(microvanSurveyData) == 'aftrschl'] <- "We engage in more after‐school activities than most families."
-names(microvanSurveyData)[names(microvanSurveyData) == 'accesfun'] <- "Accessories really make a car more fun to drive."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'kidtrans'] <- "We need a car that helps transport our kids and their friends."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'miniboxy'] <- "Current minivans are simply too boxy and large."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'lthrbetr'] <- "Leather seats are dramatically better than cloth."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'secbiggr'] <- "If we got a second car, it would need to be bigger than a standard sedan."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'safeimpt'] <- "Auto safety is very important to me."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'buyhghnd'] <- "We tend to buy higher‐end cars."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'pricqual'] <- "Car prices strongly reflect underlying production quality."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'prmsound'] <- "A premium sound and entertainment system helps on long car trips."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'perfimpt'] <- "Performance is very important in a car."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'tkvacatn'] <- "We try to take as many vacations as possible."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'noparkrm'] <- "Our current residence doesn't have a lot of parking room."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'homlrgst'] <- "Our home is among the largest in the neighborhood."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'envrminr'] <- "The environmental impact of automobiles is relatively minor."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'needbetw'] <- "There needs to be something between a sedan and a minivan."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'suvcmpct'] <- "I like SUVs more than minivans since they're more compact."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'next2str'] <- "My next car will be a two‐seater."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'carefmny'] <- "We are careful with money."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'shdcarpl'] <- "I think everyone should carpool or take public transportation."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'imprtapp'] <- "Most of our appliances are imported."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'lk4whldr'] <- "Four‐wheel drive is a very attractive option."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'kidsbulk'] <- "Our kids tend to take a lot of bulky items and toys with them."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'wntguzlr'] <- "I will buy what I want even if it is a “gas guzzler”."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'nordtrps'] <- "We don’t go on road trips with the family."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'stylclth'] <- "We tend to purchase stylish clothes for the family."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'strngwrn'] <- "Warranty protection needs to be strong on a new car."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'passnimp'] <- "Passion for one’s job is more important than pay."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'twoincom'] <- "Our family would find it hard to subsist on just one income."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'nohummer'] <- "I am not interested in owning a vehicle like a Hummer."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'aftrschl'] <- "We engage in more after‐school activities than most families."
+# names(microvanSurveyData)[names(microvanSurveyData) == 'accesfun'] <- "Accessories really make a car more fun to drive."
 
 psych::describe(microvanSurveyData)
 summary(microvanSurveyData)
@@ -153,10 +153,10 @@ variables <- scale(microvanSurveyData)
 corellations <- cor(variables)
 
 # print pretty
-upper<-round(corellations, 3) # we round the results to the 3d digit after comma
-upper[upper.tri(cor)]<-""
-upper<-as.data.frame(upper)
-upper
+# upper<-round(corellations, 3) # we round the results to the 3d digit after comma
+# upper[upper.tri(cor)]<-""
+# upper<-as.data.frame(upper)
+# upper
 
 # As the correlation matrix is rather large (13 dimensions), additional insights can be obtained by visualizing its heatmap (a correlogram)
 corrplot(corellations,
@@ -415,15 +415,42 @@ microvanFinalData <- microvanFinalData %>%
 cluster1 <- subset(microvanFinalData, microvanFinalData[,"cluster"] == 1)
 cluster2 <- subset(microvanFinalData, microvanFinalData[,"cluster"] == 2)
 cluster3 <- subset(microvanFinalData, microvanFinalData[,"cluster"] == 3)
+# cluster4 <- subset(microvanFinalData, microvanFinalData[,"cluster"] == 4)
+# cluster5 <- subset(microvanFinalData, microvanFinalData[,"cluster"] == 5)
 
 cluster1[["cluster"]] <- NULL
 cluster2[["cluster"]] <- NULL
 cluster3[["cluster"]] <- NULL
+# cluster4[["cluster"]] <- NULL
+# cluster5[["cluster"]] <- NULL
 
 # Build graphs per cluster
 pairs(cluster1, lower.panel = NULL)
 pairs(cluster2, lower.panel = NULL)
 pairs(cluster3, lower.panel = NULL)
+# pairs(cluster4, lower.panel = NULL)
+# pairs(cluster5, lower.panel = NULL)
+
+# http://www.sthda.com/english/wiki/scatter-plot-matrices-r-base-graphs
+# Add correlations to matrix plots
+# Correlation panel
+panel.cor <- function(x, y){
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(0, 1, 0, 1))
+  r <- round(cor(x, y), digits=2)
+  txt <- paste0("R = ", r)
+  cex.cor <- 0.8/strwidth(txt)
+  text(0.5, 0.5, txt, cex = cex.cor * r)
+}
+# Customize upper panel
+# upper.panel<-function(x, y){
+#   points(x,y, pch = 19, col = my_cols[iris$Species])
+# }
+# Create the plots
+pairs(cluster1,
+      lower.panel = panel.cor,
+      # upper.panel = upper.panel
+)
 
 # Build all to all graphs
 # pairs(microvanFinalData, lower.panel = NULL)
