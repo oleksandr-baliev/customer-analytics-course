@@ -73,7 +73,7 @@ regressionModel <- lm(microvanData$mvliking ~
              microvanData$aftrschl +
              microvanData$accesfun
             ,
-             data = HCP)
+             data = microvanData)
 summary(regressionModel)
 
 confint(regressionModel)
@@ -98,7 +98,7 @@ bestRegressionModel <- lm(microvanData$mvliking ~
                       microvanData$lthrbetr   +
                       microvanData$homlrgst   +
                       microvanData$strngwrn,
-                      data = HCP)
+                      data = microvanData)
 
 summary(bestRegressionModel)
 par(mfrow=c(2,2)) # Change the panel layout to 2 x 2
@@ -115,36 +115,36 @@ plot(bestRegressionModel$residuals)
 microvanSurveyData <- microvanData[,3:32]
 
 #Uncomment to for better factor analysis interpretations
-# names(microvanSurveyData)[names(microvanSurveyData) == 'kidtrans'] <- "We need a car that helps transport our kids and their friends."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'miniboxy'] <- "Current minivans are simply too boxy and large."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'lthrbetr'] <- "Leather seats are dramatically better than cloth."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'secbiggr'] <- "If we got a second car, it would need to be bigger than a standard sedan."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'safeimpt'] <- "Auto safety is very important to me."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'buyhghnd'] <- "We tend to buy higher‐end cars."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'pricqual'] <- "Car prices strongly reflect underlying production quality."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'prmsound'] <- "A premium sound and entertainment system helps on long car trips."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'perfimpt'] <- "Performance is very important in a car."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'tkvacatn'] <- "We try to take as many vacations as possible."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'noparkrm'] <- "Our current residence doesn't have a lot of parking room."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'homlrgst'] <- "Our home is among the largest in the neighborhood."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'envrminr'] <- "The environmental impact of automobiles is relatively minor."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'needbetw'] <- "There needs to be something between a sedan and a minivan."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'suvcmpct'] <- "I like SUVs more than minivans since they're more compact."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'next2str'] <- "My next car will be a two‐seater."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'carefmny'] <- "We are careful with money."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'shdcarpl'] <- "I think everyone should carpool or take public transportation."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'imprtapp'] <- "Most of our appliances are imported."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'lk4whldr'] <- "Four‐wheel drive is a very attractive option."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'kidsbulk'] <- "Our kids tend to take a lot of bulky items and toys with them."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'wntguzlr'] <- "I will buy what I want even if it is a “gas guzzler”."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'nordtrps'] <- "We don’t go on road trips with the family."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'stylclth'] <- "We tend to purchase stylish clothes for the family."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'strngwrn'] <- "Warranty protection needs to be strong on a new car."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'passnimp'] <- "Passion for one’s job is more important than pay."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'twoincom'] <- "Our family would find it hard to subsist on just one income."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'nohummer'] <- "I am not interested in owning a vehicle like a Hummer."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'aftrschl'] <- "We engage in more after‐school activities than most families."
-# names(microvanSurveyData)[names(microvanSurveyData) == 'accesfun'] <- "Accessories really make a car more fun to drive."
+names(microvanSurveyData)[names(microvanSurveyData) == 'kidtrans'] <- "We need a car that helps transport our kids and their friends."
+names(microvanSurveyData)[names(microvanSurveyData) == 'miniboxy'] <- "Current minivans are simply too boxy and large."
+names(microvanSurveyData)[names(microvanSurveyData) == 'lthrbetr'] <- "Leather seats are dramatically better than cloth."
+names(microvanSurveyData)[names(microvanSurveyData) == 'secbiggr'] <- "If we got a second car, it would need to be bigger than a standard sedan."
+names(microvanSurveyData)[names(microvanSurveyData) == 'safeimpt'] <- "Auto safety is very important to me."
+names(microvanSurveyData)[names(microvanSurveyData) == 'buyhghnd'] <- "We tend to buy higher‐end cars."
+names(microvanSurveyData)[names(microvanSurveyData) == 'pricqual'] <- "Car prices strongly reflect underlying production quality."
+names(microvanSurveyData)[names(microvanSurveyData) == 'prmsound'] <- "A premium sound and entertainment system helps on long car trips."
+names(microvanSurveyData)[names(microvanSurveyData) == 'perfimpt'] <- "Performance is very important in a car."
+names(microvanSurveyData)[names(microvanSurveyData) == 'tkvacatn'] <- "We try to take as many vacations as possible."
+names(microvanSurveyData)[names(microvanSurveyData) == 'noparkrm'] <- "Our current residence doesn't have a lot of parking room."
+names(microvanSurveyData)[names(microvanSurveyData) == 'homlrgst'] <- "Our home is among the largest in the neighborhood."
+names(microvanSurveyData)[names(microvanSurveyData) == 'envrminr'] <- "The environmental impact of automobiles is relatively minor."
+names(microvanSurveyData)[names(microvanSurveyData) == 'needbetw'] <- "There needs to be something between a sedan and a minivan."
+names(microvanSurveyData)[names(microvanSurveyData) == 'suvcmpct'] <- "I like SUVs more than minivans since they're more compact."
+names(microvanSurveyData)[names(microvanSurveyData) == 'next2str'] <- "My next car will be a two‐seater."
+names(microvanSurveyData)[names(microvanSurveyData) == 'carefmny'] <- "We are careful with money."
+names(microvanSurveyData)[names(microvanSurveyData) == 'shdcarpl'] <- "I think everyone should carpool or take public transportation."
+names(microvanSurveyData)[names(microvanSurveyData) == 'imprtapp'] <- "Most of our appliances are imported."
+names(microvanSurveyData)[names(microvanSurveyData) == 'lk4whldr'] <- "Four‐wheel drive is a very attractive option."
+names(microvanSurveyData)[names(microvanSurveyData) == 'kidsbulk'] <- "Our kids tend to take a lot of bulky items and toys with them."
+names(microvanSurveyData)[names(microvanSurveyData) == 'wntguzlr'] <- "I will buy what I want even if it is a “gas guzzler”."
+names(microvanSurveyData)[names(microvanSurveyData) == 'nordtrps'] <- "We don’t go on road trips with the family."
+names(microvanSurveyData)[names(microvanSurveyData) == 'stylclth'] <- "We tend to purchase stylish clothes for the family."
+names(microvanSurveyData)[names(microvanSurveyData) == 'strngwrn'] <- "Warranty protection needs to be strong on a new car."
+names(microvanSurveyData)[names(microvanSurveyData) == 'passnimp'] <- "Passion for one’s job is more important than pay."
+names(microvanSurveyData)[names(microvanSurveyData) == 'twoincom'] <- "Our family would find it hard to subsist on just one income."
+names(microvanSurveyData)[names(microvanSurveyData) == 'nohummer'] <- "I am not interested in owning a vehicle like a Hummer."
+names(microvanSurveyData)[names(microvanSurveyData) == 'aftrschl'] <- "We engage in more after‐school activities than most families."
+names(microvanSurveyData)[names(microvanSurveyData) == 'accesfun'] <- "Accessories really make a car more fun to drive."
 
 psych::describe(microvanSurveyData)
 summary(microvanSurveyData)
@@ -177,7 +177,7 @@ eigenvalues / length(eigenvalues)
 cumsum(eigenvalues/length(eigenvalues))
 scree(corellations, pc = TRUE, factors = FALSE)
 
-numberOfFactors <- 5
+numberOfFactors <- 3
 
 plot(cumsum(eigenvalues/length(eigenvalues)),
     type = "o", # type of plot: "o" for points and lines 'overplotted'
@@ -189,18 +189,18 @@ plot(cumsum(eigenvalues/length(eigenvalues)),
     lwd = 2) # line width
 abline(v = numberOfFactors, lwd = 2, col = "grey") # draw a vertical line at v = 3
 
-factorAnalysis <- principal(r = corellations,
-                 nfactors = numberOfFactors,
-                 rotate="varimax",
-                 scores = TRUE)
-# factorAnalysis <- fa(r = corellations,
-#    nfactors = numberOfFactors,
-#    fm = "pa",
-#    rotate = "varimax")
+# factorAnalysis <- principal(r = corellations,
+#                  nfactors = numberOfFactors,
+#                  rotate="varimax",
+#                  scores = TRUE)
+factorAnalysis <- fa(r = corellations,
+   nfactors = numberOfFactors,
+   fm = "pa",
+   rotate = "varimax")
 
 print(factorAnalysis,
       digits = 3, # to round numbers to the third digit
-      cut = 0.5, # to show only values > 0.35
+      cut = 0.4, # to show only values > 0.35
       sort = TRUE # to sort rows by loading size
 )
 
@@ -212,6 +212,10 @@ round(loadings, 3)
 factorScores <- factor.scores(variables, unclass(factorAnalysis$loadings))$scores
 microvanFactoredData <- data.frame(microvanData[,1:2], factorScores, microvanData[,33:39])
 microvanFactoredData[["subjnumb"]] <- NULL
+
+# Plot graphs all factor to all demographics
+# microvanInterimData <- data.frame(mvliking = microvanData[,2], factorScores, microvanData[,33:39])
+# pairs(microvanInterimData, lower.panel = NULL)
 
 # plot(x = microvanFactoredData$PA4,
 #      y = microvanFactoredData$PA5,
@@ -229,8 +233,14 @@ microvanFactoredData[["subjnumb"]] <- NULL
 # Hierarchical cluster analysis
 #
 
+
 clusterAnalysisData <- data.frame(factorScores[1:200,])
 clusterAnalysisValidationData <- data.frame(factorScores[201:400,])
+
+# Uncomment if you don't need validation
+clusterAnalysisData <- data.frame(factorScores)
+
+# Uncomment if you want to try to run the cluster analysis with all 30 variables
 # clusterAnalysisData <- microvanSurveyData
 
 # 2. Run a cluster a  nalysis on a distance matrix and using the Ward method
@@ -247,7 +257,7 @@ plot(rev(microvan_ward$height), # rev is used to plot from low to high values on
      col = "darkblue",
      pch = 16)             # specify the plot symbol: 16 = filled circle
 
-kClusters <- 5
+kClusters <- 3
 abline(v = kClusters, lty = 2, col = "darkred") # draw a vertical line at v = 5
 
 # Dendrogram
@@ -276,10 +286,21 @@ round(centroids, 3)
 
 set.seed(1)
 kMeansCluster <- kmeans(clusterAnalysisData, centers = centroids, iter.max = 10)
+# The printed output displays:
+# - the cluster means or centers: A matrix whose rows are a cluster number (1 to K) and whose columns are variables
+# - the clustering vector: A vector of indices (from 1:K) indicating the cluster to which each observation in the data set is allocated
 kMeansCluster
 
-kMeansCluster$size
-kMeansCluster$centers
+# The kmeans() function returns a list of components, the most informative of which are the following:
+#
+# cluster: A vector of indices (from 1:K) indicating the cluster to which each point is allocated
+# centers: A matrix of cluster centers (cluster means)
+# size: The number of observations in each cluster
+#- totss: The total sum of squares (TSS) that measures the total variance in the data.
+#- withinss: Vector of within-cluster sum of squares, one component per cluster
+#- tot.withinss: Total within-cluster sum of squares, i.e. sum(withinss)
+#- betweenss: The between-cluster sum of squares, i.e. totss???tot.withinss
+str(kMeansCluster)
 
 # the change in each cluster from the K-means clustering
 changePerCluster <- NULL
@@ -308,10 +329,10 @@ aggregate(clusterAnalysisData,
           by = list(cluster =clusterAnalysisData$cluster),
           FUN = mean)
 
-clusterAnalysisData$cluster
 dt.cluster <- aggregate(clusterAnalysisData,
                         by = list(cluster =clusterAnalysisData$cluster),
                         FUN = mean)
+# TODO: find better solution to fix extra column
 dt.cluster <- dt.cluster[, -1]
 
 dt.cluster %>%
@@ -367,9 +388,94 @@ vali_crossstab %>%
   scale_y_discrete(expand = c(0,0)) +
   scale_fill_gradient("Frequency", low = "lightgrey", high = "darkblue") +
   theme_minimal() +
-  labs(title = "Validation of the cluster solution for car_pref2",
+  labs(title = "Validation of the cluster solution for microvan validation data",
        x = "KS2",
        y = "KS1") +
   theme(legend.position="right",
         plot.title = element_text(size = 10, face = "bold", hjust = 0.5),
         axis.ticks = element_blank())
+
+#
+# reality check with social data
+#
+
+colnames(microvanData[,33:39])
+microvanFinalData <- data.frame(mvliking = microvanData[,2], factorScores, microvanData[,33:39], cluster = kMeansCluster$cluster)
+
+# Rename for easier interpretation
+microvanFinalData <- microvanFinalData %>%
+  rename(
+    affluent = PA1,
+    compact = PA2,
+    family = PA3
+
+  )
+# colnames(microvanFinalData)
+
+cluster1 <- subset(microvanFinalData, microvanFinalData[,"cluster"] == 1)
+cluster2 <- subset(microvanFinalData, microvanFinalData[,"cluster"] == 2)
+cluster3 <- subset(microvanFinalData, microvanFinalData[,"cluster"] == 3)
+
+cluster1[["cluster"]] <- NULL
+cluster2[["cluster"]] <- NULL
+cluster3[["cluster"]] <- NULL
+
+# Build graphs per cluster
+pairs(cluster1, lower.panel = NULL)
+pairs(cluster2, lower.panel = NULL)
+pairs(cluster3, lower.panel = NULL)
+
+# Build all to all graphs
+# pairs(microvanFinalData, lower.panel = NULL)
+
+# Regression part
+
+# Regression diagnostic plots visually assess a goodness of fir for the regression model. Problems that can be identified with the help of the diagnostic plots include:
+# - Heteroscedastic data (points at widely varying distances from the line)
+# - Nonlinear relationships
+# - Outliers
+regressionModel <- lm(microvanFinalData$mvliking ~
+                        microvanFinalData$affluent +
+                          microvanFinalData$small_size_vehicles +
+                          microvanFinalData$family_with_kids +
+                          microvanFinalData$safety_and_security +
+                          microvanFinalData$env_friendly +
+                          microvanFinalData$income +
+                          microvanFinalData$age +
+                          microvanFinalData$miles +
+                          microvanFinalData$numkids +
+                          microvanFinalData$female +
+                          microvanFinalData$educ +
+                          microvanFinalData$recycle
+  ,
+                      data = microvanFinalData)
+summary(regressionModel)
+
+confint(regressionModel)
+
+par(mfrow=c(2,2)) # Change the panel layout to 2 x 2
+# https://data.library.virginia.edu/diagnostic-plots/
+plot(regressionModel)
+par(mfrow=c(1,1)) # Change back to 1 x 1
+
+plot(regressionModel$residuals)
+
+# Run step-wise regression
+ols_step_both_p(regressionModel, pent = 0.05, prem = 0.05, details = TRUE)
+
+# TODO: Adjust with result from OLS
+bestRegressionModel <- lm(microvanFinalData$mvliking ~
+                          microvanFinalData$small_size_vehicles +
+                          microvanFinalData$env_friendly +
+                          microvanFinalData$age +
+                          microvanFinalData$female +
+                          microvanFinalData$safety_and_security +
+                          microvanFinalData$educ,
+                      data = microvanFinalData)
+
+summary(bestRegressionModel)
+par(mfrow=c(2,2)) # Change the panel layout to 2 x 2
+# https://data.library.virginia.edu/diagnostic-plots/
+plot(bestRegressionModel)
+par(mfrow=c(1,1)) # Change back to 1 x 1
+
