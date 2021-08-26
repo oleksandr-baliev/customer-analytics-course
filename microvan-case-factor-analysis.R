@@ -229,8 +229,8 @@ microvanFactoredData[["subjnumb"]] <- NULL
 # Hierarchical cluster analysis
 #
 
-clusterAnalysisData <- factorScores[1:200,]
-clusterAnalysisDataValidation <- factorScores[201:400,]
+clusterAnalysisData <- data.frame(factorScores[1:200,])
+clusterAnalysisValidationData <- data.frame(factorScores[201:400,])
 # clusterAnalysisData <- microvanSurveyData
 
 # 2. Run a cluster a  nalysis on a distance matrix and using the Ward method
@@ -289,6 +289,7 @@ for (i in 1:kClusters){
 
 round(changePerCluster, 3)
 
+# that can help to see how far cluster are from each others.
 dist(kMeansCluster$centers)
 
 # Add cluster index as separate column
@@ -301,12 +302,13 @@ round(colMeans(clusterAnalysisData), 3)
 
 # TODO: uncomment and try again, the issue with small vector is- > "operator is invalid for atomic vectors"
 # Average for Cluster 1
-round(colMeans(clusterAnalysisData[clusterAnalysisData == 1, ]), 3)
+# round(colMeans(clusterAnalysisData[clusterAnalysisData == 1, ]), 3)
 # Average for each cluster with one step
 aggregate(clusterAnalysisData,
           by = list(cluster =clusterAnalysisData$cluster),
           FUN = mean)
 
+clusterAnalysisData$cluster
 dt.cluster <- aggregate(clusterAnalysisData,
                         by = list(cluster =clusterAnalysisData$cluster),
                         FUN = mean)
@@ -334,21 +336,40 @@ fviz_cluster(kMeansCluster, data = clusterAnalysisData)
   + theme_bw()
 #
 #
-# Validation...
+# Validation..
 #
 #
 
 set.seed(1)
-kMeansClusterValidation <- kmeans(clusterAnalysisDataValidation, centers = kMeansCluster$centers, iter.max = 1)
+kMeansClusterValidation <- kmeans(clusterAnalysisValidationData, centers = kMeansCluster$centers, iter.max = 1)
 kMeansClusterValidation
 
-validation <- cbind(clusterAnalysisDataValidation, KS1 = kMeansClusterValidation$cluster)
+validation <- cbind(clusterAnalysisValidationData, KS1 = kMeansClusterValidation$cluster)
 round(kMeansClusterValidation$centers, 3)
 
-kMeansClusterValidationFull <- kmeans(clusterAnalysisDataValidation, centers = centroids, iter.max = 10)
+kMeansClusterValidationFull <- kmeans(clusterAnalysisValidationData, centers = centroids, iter.max = 10)
 kMeansClusterValidationFull
 
 validation <- cbind(validation, KS2 = kMeansClusterValidationFull$cluster)
 
 table(KS1 = validation$KS1, KS2 = validation$KS2)
 vali_crossstab = as.data.table(table(KS1 = validation$KS1, KS2 = validation$KS2))
+
+# The heatmap makes it visually clear that the two solutions are in broad agreement, with most of the observations falling into just five table cells. The resulting clusters thus seem relatively robust, which concludes the validation exercise.
+vali_crossstab %>%
+  as.data.table() %>%   # store as a data.table
+  mutate(KS1 = as.numeric(KS1), KS2 = as.numeric(KS2)) %>% # convert variables from character to numeric format
+  rename(value = N) %>%
+  ggplot(aes(y = factor(KS1), x = factor(KS2))) +
+  geom_tile(aes(fill = value)) +
+  geom_text(aes(label = value), color="white") +
+  scale_x_discrete(expand = c(0,0)) +
+  scale_y_discrete(expand = c(0,0)) +
+  scale_fill_gradient("Frequency", low = "lightgrey", high = "darkblue") +
+  theme_minimal() +
+  labs(title = "Validation of the cluster solution for car_pref2",
+       x = "KS2",
+       y = "KS1") +
+  theme(legend.position="right",
+        plot.title = element_text(size = 10, face = "bold", hjust = 0.5),
+        axis.ticks = element_blank())
